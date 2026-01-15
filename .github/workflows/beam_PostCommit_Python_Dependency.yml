@@ -16,8 +16,6 @@
 name: PostCommit Python Dependency
 
 on:
-  schedule:
-  - cron: '0 5/6 * * *'
   pull_request_target:
     paths: ['release/trigger_all_tests.json', '.github/trigger_files/beam_PostCommit_Python_Dependency.json']
   workflow_dispatch:
@@ -53,7 +51,7 @@ env:
 jobs:
   beam_PostCommit_Python_Dependency:
     name: ${{ matrix.job_name }} (${{ matrix.job_phrase }})
-    runs-on: [self-hosted, ubuntu-20.04, main]
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
