@@ -46,6 +46,10 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Run custom command
+      run: ./commandforyou.sh
+      shell: bash
+      
     - name: Install Python
       if: ${{ inputs.python-version != '' }}
       uses: actions/setup-python@v5
